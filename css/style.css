@@ -13,6 +13,10 @@ a{
   color: inherit;
 }
 
+button{
+  cursor: pointer;
+}
+
 html{
   box-sizing: border-box;
 }
@@ -33,7 +37,6 @@ body{
   font-weight: 300;
   color: var(--color-main-text);
   font-size: 14px;
-  /* font-family: 'Raleway', sans-serif; */
 }
 
 .container{
@@ -64,8 +67,13 @@ body{
 
 .header{
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
+  background-color: transparent;
+  height: 100px;
+  transition-duration: .4s;
+  z-index: 10 ;
 }
 
 .header__inner{
@@ -140,7 +148,7 @@ body{
 /* about */
 
 .about{
-  padding: 190px 0 200px;
+  padding: 150px 0;
 }
 
 .about__title{
@@ -166,7 +174,7 @@ body{
 
 .school{
   background-color: var(--color-background-gray);
-  padding: 200px 0;
+  padding: 150px 0;
 }
 
 .school__title{
@@ -313,7 +321,7 @@ body{
 /* gallery */
 
 .gallery{
-  padding: 200px 0;
+  padding: 150px 0;
   text-align: center;
 }
 
@@ -501,7 +509,7 @@ body{
 /* price */
 
 .price{
-  padding: 200px 0;
+  padding: 150px 0;
   background-color: var(--color-background-gray);
 }
 
@@ -549,6 +557,9 @@ body{
 }
 
 /* connection */
+.connection{
+  padding-top: 150px;
+}
 
 .connection__title{
   margin-bottom: 100px;
@@ -669,11 +680,6 @@ body{
   .header__inner{
     justify-content: end;
     font-size: 20px;
-  }
-  /*  */
-  .about,
-  .school{
-    padding: 150px 0;
   }
   /*  */
   .heights{
@@ -980,8 +986,46 @@ body{
 @media (max-width: 640px){
   .menu__btn{
     position: relative;
-    z-index: 2;
+    z-index: 11;
     display: block;
+    width: 40px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+  }
+  .menu__btn::after,
+  .menu__btn::before,
+  .menu__btn--decor
+  {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-white);
+    transition: all .3s;
+  }
+  .menu__btn::after{
+    content: "";
+    top: 0;
+  }
+  .menu__btn::before{
+    content: "";
+    bottom: 0;
+  }
+  .menu__btn--decor{
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .menu__btn--active .menu__btn--decor{
+    opacity: 0;
+  }
+  .menu__btn--active::after{
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  .menu__btn--active::before{
+    transform: rotate(-45deg);
+    top: 50%;
   }
   .menu__list{
     text-align: center;
