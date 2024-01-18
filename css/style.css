@@ -992,6 +992,7 @@ body{
     height: 30px;
     border: none;
     background-color: transparent;
+    right: 0;
   }
   .menu__btn::after,
   .menu__btn::before,
